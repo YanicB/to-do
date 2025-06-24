@@ -1,22 +1,5 @@
 import { Router } from 'express';
 
-let todo = [
-    {
-        id: 1,
-        task: 'testing',
-        completed: false,
-    },
-    {
-        id: 2,
-        task: 'nvim',
-        completed: true,
-    },
-    {
-        id: 3,
-        task: 'L',
-        completed: false,
-    }
-]
 const todoRouter = Router();
 
 todoRouter.get('/', (req, res) => res.json(todo));

@@ -1,8 +1,8 @@
-const Card = () => {
+const Card = ({ task, completed }) => {
     return (
         <div className="">
-            <h2>To do list Title</h2>
-            <p>This will be a description on the specific thing</p>
+            <h3>{task}</h3>
+            <p>{completed}</p>
         </div>
     )
 }

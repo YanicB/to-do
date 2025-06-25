@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to the To-do list API')
 })
 
-app.post('/api/v1/todo/:id', (req, res, next) => {
+app.post('/api/v1/todo', (req, res, next) => {
     const body = req.body
     if (!body.content) {
         return res.status(400).json({ error: 'content missing' })

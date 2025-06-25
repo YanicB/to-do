@@ -1,8 +1,8 @@
-const Card = ({ task, completed }) => {
+const Card = ({ content, completion }) => {
     return (
         <div className="">
-            <h3>{task}</h3>
-            <p>{completed}</p>
+            <h3>{content}</h3>
+            <p>{completion}</p>
         </div>
     )
 }

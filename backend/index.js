@@ -1,10 +1,8 @@
-import express from 'express';
-//import todoRouter from './routes/todo.routes.js';
-import mongoose from 'mongoose';
 import dotenv from 'dotenv'
+dotenv.config()
+import express from 'express';
 import Todo from './models/todo.js'
 
-dotenv.config()
 
 const app = express();
 app.use(express.json());
@@ -17,16 +15,13 @@ app.get('/', (req, res) => {
 
 app.post('/api/v1/todo', (req, res) => {
     const body = req.body
-
     if (!body.content) {
-        return response.status(400).json({ error: 'content missing' })
+        return res.status(400).json({ error: 'content missing' })
     }
-
     const todo = new Todo({
         content: body.content,
         completion: body.completion || false,
     })
-
     todo.save().then(savedTodo => {
         res.json(savedTodo)
     })
@@ -36,11 +31,20 @@ app.get('/api/v1/todo', (req, res) => {
     Todo.find({}).then(todos => {
         res.json(todos)
     })
+})
 
-    app.get('api/v1/todo/:id', (req, res) => {
-        Todo.findById(req.params.id).then(todo => {
-            res.json(todo)
-        })
+app.delete('/api/v1/todo/:id', (req, res) => {
+    const id = req.params.id
+    Todo.findByIdAndDelete(id).then(deletedTodo => {
+        res.json({ message: "todo deleted.", todo: deletedTodo })
+    }
+    )
+})
+
+
+app.get('api/v1/todo/:id', (req, res) => {
+    Todo.findById(req.params.id).then(todo => {
+        res.json(todo)
     })
 })
 

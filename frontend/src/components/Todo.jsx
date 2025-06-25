@@ -31,13 +31,18 @@ const Todo = () => {
 
     const addTodo = async (event) => {
         event.preventDefault()
-        let response = await postTodo({
-            content: newTodo,
-            completion: false,
-        })
-        setTodos(todos.concat(response))
+        try {
+            let response = await postTodo({
+                content: newTodo,
+                completion: false,
+            })
+            setTodos(todos.concat(response))
+        } catch (err) {
+            console.log(err.response.data.error)
+        }
         setNewTodo('')
     }
+
     const filteredTodo = todos.filter(todo =>
         todo.content.toLowerCase().includes(query.toLowerCase()))
 

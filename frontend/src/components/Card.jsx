@@ -1,7 +1,6 @@
-// TODO: move Button inside of card
+// TODO: move button inside of card
 import { deleteTodo } from '../services/todo.jsx'
-import Button from '@mui/material/Button'
-import DeleteIcon from '@mui/icons-material/Delete'
+import { Trash } from 'lucide-react'
 const Card = ({ todo, setTodos, todos }) => {
 
     const removeTodo = async (id, content) => {
@@ -12,15 +11,13 @@ const Card = ({ todo, setTodos, todos }) => {
         }
     }
     return (
-        <div className="flex flex-row ">
+        <div className="flex flex-row justify-between items-center">
             <h3>{todo.content}</h3>
-            <Button
-                variant="outlined"
-                startIcon={<DeleteIcon />}
+            <button
                 onClick={() => removeTodo(todo.id, todo.content)}>
-            </Button>
+                <Trash />
+            </button>
         </div>
     )
 }
-
 export default Card

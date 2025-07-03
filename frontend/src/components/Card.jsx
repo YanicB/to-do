@@ -1,5 +1,7 @@
-// TODO: move button inside of card
+// TODO: move Button inside of card
 import { deleteTodo } from '../services/todo.jsx'
+import Button from '@mui/material/Button'
+import DeleteIcon from '@mui/icons-material/Delete'
 const Card = ({ todo, setTodos, todos }) => {
 
     const removeTodo = async (id, content) => {
@@ -10,10 +12,13 @@ const Card = ({ todo, setTodos, todos }) => {
         }
     }
     return (
-        <div className="">
+        <div className="flex flex-row ">
             <h3>{todo.content}</h3>
-            <p>{todo.completion}</p>
-            <button onClick={() => removeTodo(todo.id, todo.content)}>Delete</button>
+            <Button
+                variant="outlined"
+                startIcon={<DeleteIcon />}
+                onClick={() => removeTodo(todo.id, todo.content)}>
+            </Button>
         </div>
     )
 }

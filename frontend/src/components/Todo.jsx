@@ -38,7 +38,7 @@ const Todo = () => {
         todo.content.toLowerCase().includes(query.toLowerCase()))
 
     return (
-        <div className="w-30 h-30 bg-red-150">
+        <div className="w-100 h-100">
             <div>
                 <input
                     placeholder="Search todos..."
@@ -47,8 +47,10 @@ const Todo = () => {
                 />
                 <form className="flex flex-row" onSubmit={addTodo}>
                     <input
+                        type="text"
                         value={newTodo}
                         onChange={handleTodoChange}
+                        placeholder="Enter a task..."
                     />
                     <button type="submit">add</button>
                 </form>

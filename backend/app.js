@@ -24,7 +24,7 @@ app.use(express.json())
 
 // MIDDLEWARES
 app.use(middleware.requestLogger)
-app.use('api/v1/todo', todoRouter)
+app.use('/api/v1/todo', todoRouter)
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 

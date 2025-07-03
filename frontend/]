@@ -1,0 +1,17 @@
+// TODO: move button inside of card
+import { deleteTodo } from '../services/todo.jsx'
+const Card = ({ todos, setTodos }) => {
+
+    const removeTodo = async (id, content) => {
+        let response = await deleteTodo(id)
+    }
+    return (
+        <div className="">
+            <h3>{content}</h3>
+            <p>{completion}</p>
+            <button onClick={() => removeTodo(todos.id, todos.content)}>Delete</button>
+        </div>
+    )
+}
+
+export default Card

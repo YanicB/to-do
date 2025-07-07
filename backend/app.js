@@ -2,6 +2,7 @@ import config from './utils/config.js'
 import express from 'express'
 import todoRouter from './controllers/todo.js'
 import logger from './utils/logger.js'
+import usersRouter from './controllers/user.js'
 import mongoose from 'mongoose'
 import middleware from './utils/middleware.js'
 const app = express()
@@ -25,6 +26,7 @@ app.use(express.json())
 // MIDDLEWARES
 app.use(middleware.requestLogger)
 app.use('/api/v1/todo', todoRouter)
+app.use('api/v1/users', usersRouter)
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 

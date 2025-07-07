@@ -1,7 +1,7 @@
 import Card from './Card.jsx'
 import { useState, useEffect } from 'react'
 import { getAll, postTodo } from '../services/todo.jsx'
-import { Plus } from 'lucide-react'
+import { Plus, Search } from 'lucide-react'
 const Todo = () => {
     const [todos, setTodos] = useState([])
     const [newTodo, setNewTodo] = useState('')
@@ -52,9 +52,9 @@ const Todo = () => {
                     </button>
                 </form>
                 <div>
-                    <ul className="space-y-5 ">
+                    <ul className="space-y-5">
                         {todos.map((card) => (
-                            <li className="bg-gray-100 max-w-full sm:w-96 min-h-10  rounded-2xl p-4 text-lg hover:bg-gray-200" key={card.id} >
+                            <li className="bg-gray-100 w-full sm:w-96 min-h-10 break- rounded-2xl p-4 text-lg hover:bg-gray-200" key={card.id} >
                                 <Card todo={card} setTodos={setTodos} todos={todos} />
                             </li>
                         ))}

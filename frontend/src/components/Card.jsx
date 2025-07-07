@@ -11,7 +11,7 @@ const Card = ({ todo, setTodos, todos }) => {
         }
     }
     return (
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex flex-row justify-between items-center ">
             <h3>{todo.content}</h3>
             <button
                 onClick={() => removeTodo(todo.id, todo.content)}>

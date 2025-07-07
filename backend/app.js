@@ -5,6 +5,7 @@ import logger from './utils/logger.js'
 import usersRouter from './controllers/user.js'
 import mongoose from 'mongoose'
 import middleware from './utils/middleware.js'
+import loginRouter from './controllers/login.js'
 const app = express()
 
 logger.info('connecting to', config.MONGODB_URI)
@@ -26,7 +27,8 @@ app.use(express.json())
 // MIDDLEWARES
 app.use(middleware.requestLogger)
 app.use('/api/v1/todo', todoRouter)
-app.use('api/v1/users', usersRouter)
+app.use('/api/v1/users', usersRouter)
+app.use('/api/v1/login', loginRouter)
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 

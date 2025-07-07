@@ -4,6 +4,11 @@ import bcrypt from 'bcrypt'
 
 const usersRouter = Router()
 
+usersRouter.get('/', async (req, res) => {
+    const users = await User.find({}).populate('todos', { content: 1, completion: 1 })
+    res.json(users)
+})
+
 usersRouter.post('/', async (req, res) => {
     const { username, name, password } = req.body
 

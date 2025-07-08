@@ -17,6 +17,7 @@ const Todo = () => {
         }
         fetchData()
     }, [])
+
     const handleTodoChange = (event) => {
         setNewTodo(event.target.value)
     }

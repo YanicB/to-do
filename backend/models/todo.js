@@ -3,7 +3,6 @@ import mongoose from 'mongoose'
 const todoSchema = new mongoose.Schema({
     content: {
         type: String,
-        minLength: 5,
         required: true
     },
     completion: Boolean,
